@@ -1,0 +1,65 @@
+<% provide(:title, @user.name) %>
+<!--form_withヘルパーメソッドを使って「編集を保存する」ボタンを追加-->
+<%= form_with(model: @user, url: attendances_update_one_month_user_path(@user, date: @first_day), local: true, method: :patch) do |f| %>
+  <div>
+    <h1>勤怠編集画面</h1>
+    <table class="table table-striped table-bordered table-condensed table-hover" id="table-attendances">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>曜日</th>
+          <th>出勤時間</th>
+          <th>退勤時間</th>
+          <th>翌日</th>
+          <th>在社時間</th>
+          <th>備考</th>
+          <th>指示者確認印</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @attendances.each do |day| %>
+        
+          <% 
+            css_class = 
+            case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+            when '土'
+              'text-primary'
+            when '日'
+              'text-danger'
+            end
+          %>
+          <!--各フォームのinputタグのname属性にattendances[id][カラム名]という形式で展開されるようになる。-->
+          <%= f.fields_for "attendances[]", day do |attendance| %>
+            <tr>
+              <td><%= l(day.worked_on, format: :short) %></td>
+              <td class="<%= css_class %>"><%= $days_of_the_week[day.worked_on.wday] %></td>
+              <!--もし、現在のユーザー、且つ、現在の勤怠の日より日付が大きい時は-->
+              <% if current_user && (Date.current < day.worked_on) %>
+              <!--readonly: true　⇨　出勤時間と退社時間を操作出来ないようにする。-->
+                <td><%= attendance.time_field :edit_started_at, readonly: true, class: "form-control" %></td>
+                <td><%= attendance.time_field :edit_finished_at, readonly: true, class: "form-control" %></td>
+              <% else %>
+                <td><%= attendance.time_field :edit_started_at, class: "form-control" %></td>
+                <td><%= attendance.time_field :edit_finished_at, class: "form-control" %></td>
+              <% end %>
+              <td><%= attendance.check_box :tomorrow_k, {}, "true", "false" %></td>
+              <td>
+                <% if day.edit_started_at.present? && day.edit_finished_at.present? %>
+                  <!--在社時間を計算-->
+                  <%= working_times(day.edit_started_at, day.edit_finished_at) %>
+                <% end %>
+              </td>
+              <td><%= attendance.text_field :note, class: "form-control" %></td>
+              <td><%= attendance.select :instructor_confirmation_k, options_from_collection_for_select(@superior, :id, :name , 1), {include_blank: true}, {class: "form-control"} %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="center">
+    <%= f.submit "編集を保存する", class: "btn btn-default" %>
+    <%= link_to "キャンセル", user_path(date: @first_day), class: "btn btn-default" %>
+  </div>
+<% end %>

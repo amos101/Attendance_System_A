@@ -1,0 +1,34 @@
+<% provide(:class_text, 'basic-info') %>
+<% provide(:button_text, '更新') %>
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style="border:none">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h1 class="modal-title">拠点情報の編集</h1>
+    <div class="modal-body">
+      <%= form_with(model: @base, url: basis_path, local: true, method: :patch) do |f| %>
+       <table class="table table-bordered table-striped table-status" id="table-attendances">
+        <tbody>
+      
+          <%= f.label :base_number, "拠点番号", class: "label-#{yield(:class_text)}"  %>
+          <%= f.number_field :base_number, class: "form-control" %>
+      
+          <%= f.label :base_name, "拠点名", class: "label-#{yield(:class_text)}"  %>
+          <%= f.text_field :base_name, class: "form-control" %>
+      
+          <%= f.label :attendance_type, "勤怠種類", class: "label-#{yield(:class_text)}"  %>
+          <%= f.select :attendance_type, [['なし'], ['出勤'], ['退勤']], { include_blank: true }, { id: "attendance_type", class: "form-control" } %><br>
+          
+          <div class="center">
+            <%= f.submit yield(:button_text), class: "btn btn-primary form-control" %>
+          </div>
+        </tbody>
+       </table>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<% provide(:title, 'All Users') %>
+<% provide(:button_text, '更新') %>
+
+<% if params[:search].blank?  %>
+  <h1>全てのユーザー</h1>
+  <% else %>
+  <h1>検索結果</h1>
+<% end %>
+<%= form_tag import_users_path, method: :post, multipart: true do %>
+  <%= file_field_tag :csv_file %>
+  <%= submit_tag 'CSVをインポート', class: "btn btn-primary" %>
+<% end %>
+<!--  検索拡張機能  -->
+<div class="col-md-10 col-md-offset-1">
+  <div class="text-center">
+    <%= will_paginate %>
+  </div>
+    <% @users.each do |user| %>
+      <% if !current_user?(user) && current_user.admin? || !current_user?(user) && current_user.superior_flag == true %><br>
+      <tr>
+        <%= user.name %>
+      </tr>
+      <tr>
+        <br>|  <%= link_to '削除', user, method: :delete, data: { confirm: "削除してよろしいですか？" }, class: 'btn btn-primary' %><br>
+      </tr>
+        <tr>
+          <div class="well well-sm">
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#<%= user.id %>">編集</button>
+          </div>
+          <td>
+             <div id="<%= user.id %>" class="collapse">
+               <%= form_with(model: user, url: update_basic_info_user_path(user), local: true) do |f| %>
+                 <table class="table table-bordered table-striped table-status" id="table-attendances">
+                  <tbody class="card card-body">
+                
+                    <%= f.label :name, "名前" %>
+                    <%= f.text_field :name, class: "form-control" %>
+                
+                    <%= f.label :email, "メールアドレス" %>
+                    <%= f.text_field :email, class: "form-control" %>
+                
+                    <%= f.label :affiliation, "所属" %>
+                    <%= f.text_field :affiliation, class: "form-control"%>
+                    
+                    <%= f.label :employee_number, "社員番号" %>
+                    <%= f.number_field :employee_number, class: "form-control" %>
+                    
+                    <%= f.label :uid, "カードID" %>
+                    <%= f.text_field :uid, class: "form-control"%>
+                    
+                    <%= f.label :password, "パスワード" %>
+                    <%= f.password_field :password, class: "form-control" %>
+                    
+                    <%= f.label :basic_time, "基本勤務時間" %>
+                    <%= f.time_field :basic_time, class: "form-control" %>
+            
+                    <%= f.label :designated_work_start_time, "指定勤務開始時間" %>
+                    <%= f.time_field :designated_work_start_time, class: "form-control" %>
+                    
+                    <%= f.label :designated_work_end_time, "指定勤務終了時間" %>
+                    <%= f.time_field :designated_work_end_time, class: "form-control" %><br>
+      
+                    
+                    <div class="center">
+                      <%= f.submit yield(:button_text), class: "btn btn-primary form-control" %>
+                    </div>
+                  </tbody>
+                 </table>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  <div class="text-center">
+    <%= will_paginate %>
+  </div>
+</div>

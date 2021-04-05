@@ -1,0 +1,60 @@
+<% provide(:title, 'bases') %>
+<% provide(:button_text, '追加') %>
+<div>
+  <h1>拠点一覧</h1>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th class="center">拠点番号</th>
+        <th class="center">拠点名</th>
+        <th class="center">勤怠種類</th>
+      </tr>
+    </thead>
+    <% @bases.each do |base| %>
+    <tbody>
+      <tr>
+        <td><%= link_to "編集", edit_basis_path(base), remote: true, class: 'btn btn-primary' %></td>
+        <td class="center"><%= link_to "削除", basis_path(base), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: 'btn btn-primary' %></td>
+        <td class="center"><%= base.base_number %></td>
+        <td class="center"><%= base.base_name %></td>
+        <td class="center"><%= base.attendance_type %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+
+<tr>
+  <div class="well well-sm">
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#sample">拠点情報追加</button>
+  </div>
+  <td>
+    <div id="sample" class="collapse">
+      <%= form_with(model: @base, url: bases_path, local: true, method: :post) do |f| %>
+       <table class="table table-bordered table-striped table-status" id="table-attendances">
+        <tbody class="card card-body">
+      
+          <%= f.label :base_number, "拠点番号" %>
+          <%= f.number_field :base_number, class: "form-control" %>
+      
+          <%= f.label :base_name, "拠点名" %>
+          <%= f.text_field :base_name, class: "form-control" %>
+      
+          <%= f.label :attendance_type, "勤怠種類" %>
+          <%= f.select :attendance_type, [['なし'], ['出勤'], ['退勤']], { include_blank: true }, { id: "attendance_type", class: "form-control" } %><br>
+          
+          <div class="center">
+            <%= f.submit yield(:button_text), class: "btn btn-primary form-control" %>
+          </div>
+        </tbody>
+       </table>
+      <% end %>
+    </div>
+  </td>
+</tr>
+
+
+<!--モーダルウインドウ表示-->
+<div id="edit" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

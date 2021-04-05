@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      attendance: 勤怠
+    attributes:
+        user:
+          id: ID
+          name: 名前
+          email: メールアドレス
+          affiliation: 所属
+          basic_time: 基本時間 # 所定労働時間にあたります（例： 8時間）
+          work_time: 指定勤務時間 # 実労働時間にあたります（例： 7時間30分）
+          designated_work_start_time: 指定勤務開始時間
+          designated_work_end_time: 指定勤務終了時間
+          password: パスワード
+          password_confirmation: パスワード再入力
+          created_at: 作成日
+          updated_at: 更新日
+        attendance:
+          worked_on: 日付
+          started_at: 出勤時間
+          finished_at: 退勤時間
+          time_change_application: 勤怠変更申請
+          change_before: 変更前
+          change_after: 変更後
+          coming_to_work: 出社
+          leaving_the_company: 退社
+          change: 変更
+          note: 備考
+          user: ユーザーID
+          application: 申請

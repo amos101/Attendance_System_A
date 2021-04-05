@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  base_name: MyString
+  : MyString
+  base_number: 1
+
+two:
+  base_name: MyString
+  : MyString
+  base_number: 1

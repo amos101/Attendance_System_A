@@ -1,0 +1,50 @@
+<!--勤怠チュートリアル9. 3. 1 参考-->
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <h1>【残業申請】</h1>
+    <!--form_with(model: @モデル名, url: pathを指定(ルート名(右のpath名のルートにあるuserのidやその他のidがあれば引数に指定)), local: true) do |f|_-->
+    <%= form_with(model: @attendance, url: update_overtime_info_user_attendance_path(@user,@attendance), local: true) do |f| %>
+      <table class="table table-striped table-bordered table-hover" id="table-attendances">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>曜日</th>
+              <th>終了予定時間</th>
+              <th>翌日</th>
+              <th>業務処理内容</th>
+              <th>指示者確認</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 
+              css_class = 
+              case %w{日 月 火 水 木 金 土}[@attendance.worked_on.wday]
+              when '土'
+                'text-primary'
+              when '日'
+                'text-danger'
+              end
+              %>
+            <tr>
+              <td><%= l(@attendance.worked_on, format: :short) %></td>
+              <td class="<%= css_class %>"><%= $days_of_the_week[@attendance.worked_on.wday] %></td>
+              <!--記入フォームのコードだけ「@attendance」を「f」に変える。@attendanceにないカラムなので「f」にしないとエラーになる。-->
+              <td><%= f.time_field :scheduled_end_time, class: "form-control" %></td>
+              <td><%= f.check_box :tomorrow, {}, "true", "false" %></td>
+              <td><%= f.text_field :business_processing_content, class: "form-control" %></td><!--業務処理内容-->
+              <!--下記の参考資料URL　⇨　https://shinmedia20.com/rails-select-box-->
+              <td><%= f.select :instructor_confirmation, options_from_collection_for_select(@superior, :id, :name , 1), {include_blank: true}, {class: "form-control"} %></td>
+            </tr>
+          </tbody>
+      </table>
+      <div class="center">
+        <%= f.submit "変更を送信する", class: "btn btn-primary btn-block" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+    <!-- HTML shimがこの1行で収まる -->
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <!-- headerの内容がこの1行で収まる -->
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, msg| %>
+        <div class="alert alert-<%= message_type %>"><%= msg.html_safe %></div>
+      <% end %>
+      <%= yield %>
+      <!--Rails.env.development?　⇨　真（true）であればdebug(params)が表示される仕組み-->
+      <!--開発環境のみ表示される様に設定-->
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>

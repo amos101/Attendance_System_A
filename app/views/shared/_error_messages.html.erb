@@ -1,0 +1,14 @@
+<% if @user.errors.any? %> <!--@userに対しエラーが発生しているかどうか条件式を記述-->
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      <!--例/エラーが2件発生していた場合、pluralize(2, "error")に置き換わる。-->
+      <!--"1 error" "2 errors"のようにエラーの件数に応じて適切な英文を返す。-->
+      入力エラーが<%= @user.errors.count %>件ありました。
+    </div>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

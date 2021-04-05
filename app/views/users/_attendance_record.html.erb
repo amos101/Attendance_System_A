@@ -1,0 +1,50 @@
+<% provide(:title, '勤怠ログ') %>
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style="border:none">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h1 class="modal-title">勤怠ログ</h1>
+    </div>
+    <div class="modal-body">
+      <div>
+        <%= form_with(url: user_attendance_record_path(@user), method: :get, remote: true) do |f| %>
+          <button type="button btn-primary"> "キャンセル"</button><br>
+          <%= f.date_select :select_year, {:discard_day => true, :discard_month => true, :use_month_numbers => true} %><br>
+          <%= f.date_select :select_month, {:discard_day => true, :discard_year => true, :use_month_numbers => true} %>
+        <% end %>
+      </div>
+      <div>
+        <table class="table table-bordered table-striped table-status" id="table-attendances">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>変更前出社時間</th>
+              <th>変更前退社時間</th>
+              <th>変更後出社時間</th>
+              <th>変更後退社時間</th>
+              <th>指示者</th>
+              <th>承認日</th>
+            </tr>
+          </thead>
+          <% if current_user == @user %>
+            <% @attendance_ok_user.each do |at| %>
+            <tbody>
+              <tr>
+                <td><%= at.worked_on if at.worked_on.present? %></td>
+                <td><%= l(at.before_started_at.floor_to(15.minutes), format: :time) if at.before_started_at.present? %></td>
+                <th><%= l(at.before_finished_at.floor_to(15.minutes), format: :time) if at.before_finished_at.present? %></th>
+                <th><%= l(at.started_at.floor_to(15.minutes), format: :time) if at.started_at.present? %></th>
+                <th><%= l(at.finished_at.floor_to(15.minutes), format: :time) if at.finished_at.present? %></th>
+                <th><%= User.find(at.instructor_confirmation_k).name if at.instructor_confirmation_k.present? %></th>
+                <th><%= l(at.updated_at, format: :middle) if at.updated_at.present? %></th>
+              </tr>
+            </tbody>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

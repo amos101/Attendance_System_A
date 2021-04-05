@@ -1,0 +1,216 @@
+<% provide(:title, @user.name) %>
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td><%= link_to "⇦前月", user_path(date: @first_day.prev_month), class: "btn" %>【<%= l(@first_day, format: :middle) %>】時間管理表 <%= link_to "次月⇨", user_path(date: @first_day.next_month) , class: "btn" %> </td>
+      <!--app/helpers/users_helper.rbに定義済み-->
+      <td>指定勤務開始時間 <%= format_basic_info(@user.designated_work_start_time) %><br>指定勤務終了時間<%= format_basic_info(@user.designated_work_end_time) %></td>
+      <!--app/helpers/users_helper.rbに定義済み-->
+      <td colspan = "3">基本時間 : <%= format_basic_info(@user.basic_time) %></td>
+      <!--app/helpers/attendances_helper.rbに定義済み-->
+      <td colspan = "1">初日 : <%= l(@first_day, format: :short) %></td>
+    </tr>
+
+    <tr>
+      <td>所属 : <%= @user.affiliation.present? ? @user.affiliation : "未所属" %></td>
+      <td>氏名 : <%= @user.name %></td>
+      <td>コード</td>
+      <td><%= @user.employee_number %></td>
+      <td>出勤日数 : <%= @worked_sum %>日</td>
+      <td>絞め : <%= l(@last_day, format: :short) %></td> <!--config/locales/ja.ymlの40行目あたり-->
+    </tr>
+  </table>
+</div>
+
+<div>
+  <% if @user.superior_flag == true %>
+    <nav>
+      <ul class="menu-notice">
+        <% if  @number_manager_approval_application == 0 %>
+          <li>【所属長承認申請のお知らせ】</li>
+        <% else %>
+          <li>
+            <%= link_to "【所属長承認申請のお知らせ】", user_edit_one_month_application_information_path(@user), remote: true, :style=>"color:red;" %>
+            <b style="border:2px solid #F00; color: #F00"><%= @number_manager_approval_application %>件の通知があります</b>
+          </li>
+        <% end %>
+        <% if @number_of_time_change_application == 0 %>
+        <li>【勤怠変更申請のお知らせ】</li>
+        <% else %>
+        <li>
+          <%= link_to "【勤怠変更申請のお知らせ】", user_edit_one_month_information_path(@user), remote: true, :style=>"color:red;" %>
+              <b style="border:2px solid #F00; color: #F00"><%= @number_of_time_change_application %>件の通知があります</b>
+        </li>
+        <% end %>
+         <% if @number_of_applications == 0 %>
+           <li>【残業申請のお知らせ】</li>
+         <% else %>
+           <li>
+             <%= link_to "【残業申請のお知らせ】", user_edit_overtime_application_information_path(@user), remote: true, :style=>"color:red;" %>
+              <b style="border:2px solid #F00; color: #F00"><%= @number_of_applications %>件の通知があります</b>
+           </li>
+         <% end %>
+      </ul>
+    </nav>
+  <% end %>
+</div>
+<!--勤怠編集ページに移動-->
+<div class="btn-users-show">
+  <!--今回はparamsハッシュにdateキーとして、@first_dayを指定。これで受け取ったparams[:date]をもとに、どの月の情報を表示するか判断できる-->
+  <%= link_to "勤怠を編集", attendances_edit_one_month_user_path(date: @first_day), class: 'btn btn-primary' %> <%= link_to "CSV出力", user_path(format: :csv), class: "btn btn-primary" %>
+</div>
+<diV>
+  <%= link_to "勤怠修正ログ （承認済）", user_attendance_record_path(@user), remote: true, class: 'btn btn-primary' %>
+</diV>
+
+<div>
+  <table class="table table-striped table-bordered table-hover" id="table-attendances">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th colspan = "9">【実績】</th>
+        <th colspan = "9">所定外勤務</th>
+      </tr>
+      <tr>
+        <th rowspan = "2">残業申請</th>
+        <th rowspan = "2">日付</th>
+        <th rowspan = "2">曜日</th>
+        <th colspan = "4">出社</th>
+        <th colspan = "3">退社</th>
+        <th rowspan = "2">在社時間</th>
+        <th rowspan = "2">備考</th>
+        <th colspan = "2">終了予定時間</th>
+        <th rowspan = "2">時間外時間</th>
+        <th rowspan = "2">業務処理内容</th>
+        <th rowspan = "2">指示者確認㊞</th>
+      </tr>
+      <tr>
+        <th>時</th>
+        <th>分</th>
+        <th colspan = "2"></th>
+        <th>時</th>
+        <th>分</th>
+        <th></th>
+        <th>時</th>
+        <th>分</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!--(@first_day..@last_day) ⇨ 範囲オブジェクトとして扱う-->
+      <!--(@first_day..@last_day) ⇨ 配列として扱う-->
+      <% @attendances.each do |day| %>
+        <!--土日のみ色変え-->
+        <% 
+          css_class = 
+          case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+          when '土'
+            'text-primary'
+          when '日'
+            'text-danger'
+          end
+        %>
+        <tr>
+          <td><%= link_to "残業申請", edit_overtime_info_user_attendance_path(@user,day), remote: true, class: 'btn btn-primary' %></td>
+          <td><%= l(day.worked_on, format: :short) %></td> <!--日付-->
+          <!--上記の土日色変えをここに反映させる。-->
+          <td class="<%= css_class %>"><%= $days_of_the_week[day.worked_on.wday] %></td> <!--曜日-->
+          <!--もし、終業時間がある時、終業時間を表示。attendannce_helperファイルに定義。-->
+          <td><%= format_hour(day.started_at) if day.started_at.present? %></td>
+          <!--もし、終業時間が、ある時、分単位を表示。attendannce_helperファイルに定義。-->
+          <td><%= format_min(day.started_at) if day.started_at.present? %></td> <!---->
+          <td colspan = "2">
+            <!--現在の日 == 日付 && 出社時間が空なら”出勤ボタン”を出す。-->
+            <% if btn_text = attendance_state(day) && day.started_at.blank? %>
+              <%= link_to "出勤登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% end %>
+          </td>
+          <!--もし、終業時間がある時、終業時間を表示。attendannce_helperファイルに定義。-->
+          <td><%= format_hour(day.finished_at) if day.finished_at.present? %></td>
+          <!--もし、終業時間が、ある時、分単位を表示。attendannce_helperファイルに定義。-->
+          <td><%= format_min(day.finished_at) if day.finished_at.present? %></td> <!---->
+          <td>
+            <!--現在の日 == 日付 && 出社時間が空なら”退勤登録ボタン”を出す。-->
+            <% if (Date.current == day.worked_on) && day.started_at.present? && day.finished_at.blank? %>
+              <%= link_to "退勤登録", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% end %>
+          </td>
+          <td>
+            <!--もし、始業時間があり、且つ、終業時間がある時-->
+            <% if day.started_at.present? && day.finished_at.present? %>
+              <!--勤務時間（始業時間、終業時間）-->
+              <%= str_times = working_times(day.started_at, day.finished_at) %>
+              <% @total_working_times = @total_working_times.to_f + str_times.to_f %>
+            <% end %>
+          </td>
+          <td><%= day.note %></td>
+          <!--終了予定時間の「時」-->
+          <td><%= format_hour(day.scheduled_end_time) if day.scheduled_end_time.present? %></td>
+          <!--終了予定時間の「分」-->
+          <td><%= format_min(day.scheduled_end_time) if day.scheduled_end_time.present? %></td>
+          <!--時間外時間-->
+          <td><%= overtime_info(day.scheduled_end_time, @user.designated_work_end_time, day.tomorrow, day) if day.scheduled_end_time.present? %></td>
+          <td><%= day.business_processing_content %></td>
+          <td>
+            <% if day.application.present? %> 
+              <% if day.application == "申請中" %>
+                <% superior = User.find(day.instructor_confirmation) %>
+                <%= superior.name %>へ
+                残業<%= day.application %>
+              <% else %>
+                残業<%= day.application %>済み
+              <% end %>
+            <% end %>
+            <% if day.application_k.present? %>
+              <% if day.application_k == "申請中" %>
+                <% superior = User.find(day.instructor_confirmation_k) %>
+                <br><%= superior.name %>へ
+                勤怠変更<%= day.application_k %>
+              <% else %>
+                <br>勤怠変更<%= day.application_k %>済み
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="7"></td>
+        <!--累計在社時間-->
+        <td><%= format("%.2f", @total_working_times.to_f) %></td>
+        <td colspan="5"></td>
+        
+        <td><!--instructor_confirmation_okのみを更新-->
+          <%= form_with(model: @attendances, url: user_update_one_month_application_path(@user), method: :patch, local: true) do |f| %>
+            <!--更新するレコードのパラメーターに「first_day」という名前にして「value （値）」「@first_day（月初日は、application_controller.rb）」を入れる-->
+            <%= f.hidden_field :first_day, :value => @first_day %>
+            <% if @superior_flag.application_ok == nil %>
+              所属長承認 未
+            <% elsif @superior_flag.application_ok == "申請中" %>
+              <% superior = User.find(@superior_flag.instructor_confirmation_ok) %>
+              <%= superior.name %>に<%= @superior_flag.application_ok %>
+            <% else %>
+              <% superior = User.find(@superior_flag.instructor_confirmation_ok) %>
+              <%= superior.name %>から<%= @superior_flag.application_ok %>済み
+            <% end %>
+            <%= f.select :instructor_confirmation_ok, options_from_collection_for_select(@superior, :id, :name , 1), {include_blank: true}, {class: "form-control"} %>
+            <%= f.submit "申請", class: "btn btn-primary form-control" %>
+          <% end %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<!--モーダルウインドウ表示-->
+<div id="edit-overtime-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-overtime-application-information" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-one-month-information" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="edit-one-month-application-information" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="attendance-record" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

@@ -1,0 +1,71 @@
+<% provide(:title, @user.name) %>
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header", style="border:none">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!--form_with(model: @モデル名, url: pathを指定(ルート名(右のpath名のルートにあるuserのidやその他のidがあれば引数に指定)), local: true) do |f|_-->
+      <%= form_with(model: @user, url: user_update_overtime_application_information_path(@user), method: :patch, local: true) do |f| %>
+        
+        <!-- @user.each do |user| %>
+        <!-- コントローラーで定義したuser_idの箱を取り出す。idはuser_idで、attendanncesはuser_idの残業申請中の情報が入っている。 -->
+        <% @attendances.each do |id, attendances| %>
+        <% user = User.find(id) %>
+          <!--day(@attendances)のuser_idで、user(Userモデルの全てのuser)のidと一致するものを選択してきてuserに代入で、一致したレコードが取り出せる。-->
+          <center>【<%= user.name %>からの残業申請】</center>
+          <table class="table table-bordered table-striped table-condensed">
+          <!--各フォームのinputタグのname属性にattendances[id][カラム名]という形式で展開されるようになる。-->
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>曜日</th>
+                <th>終了予定時間</th>
+                <th>指定勤務終了時間</th>
+                <th>時間外時間</th>
+                <th>業務処理内容</th>
+                <th>指示者確認㊞</th>
+                <th>変更</th>
+                <th>勤怠を確認する</th>
+              </tr>
+            </thead>
+            <!--上記のeachで取り出したuserの箱から残業申請一件分を取り出す。userの箱が空になるまでくり返す-->
+            <% attendances.each do |day| %>
+            <!--入力項目はパラメータで渡してあげたいのでd-->
+              <%= f.fields_for "attendances[]", day do |d| %>
+                <tbody>
+                  <% 
+                    css_class = 
+                    case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+                    when '土'
+                      'text-primary'
+                    when '日'
+                      'text-danger'
+                    end
+                  %>
+                  <tr>
+                    <td><%= l(day.worked_on, format: :short) %></td>
+                    <td class="<%= css_class %>"><%= $days_of_the_week[day.worked_on.wday] %></td>
+                    <td><%= format_basic_info(day.scheduled_end_time) %></td>
+                    <td><%= format_basic_info(user.designated_work_end_time) %></td>
+                    <td><%= overtime_info(day.scheduled_end_time, @user.designated_work_end_time, day.tomorrow, day) %></td>
+                    <td><%= day.business_processing_content %></td>
+                    <td><%= d.select :application, [['なし'], ['申請中'], ['承認'], ['否認']], { include_blank: false, selected: 1 }, { id: "application", class: "attendance_class" } %></td>
+                    <td><%= d.check_box :change , {}, "true", "false" %></td>
+                    <td><%= link_to "確認", attendance_confirmation_user_path(day.user_id), class: "btn btn-primary" %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+            <% end %>
+          </table>   
+        <% end %>
+      <!-- end -->
+      <div class="center">
+        <%= f.submit "変更を送信する", class: "btn btn-primary btn-block" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
