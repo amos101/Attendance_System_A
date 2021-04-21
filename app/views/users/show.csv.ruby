@@ -1,6 +1,7 @@
 require 'csv'
 
-CSV.generate do |csv|
+bom = "\uFEFF"
+CSV.generate(bom) do |csv|
   column_names = %w(日付 出社時間 退社時間 備考 業務処理内容)
   csv << column_names
   @attendances.each do |attendance|

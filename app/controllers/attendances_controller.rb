@@ -162,6 +162,8 @@ class AttendancesController < ApplicationController
     end
     # beforeフィルター
 
+  
+
     def attendance
       @attendance = Attendance.new
     end

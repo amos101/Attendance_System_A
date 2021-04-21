@@ -2518,3 +2518,614 @@ Processing by StaticPagesController#top as HTML
 Completed 200 OK in 2705ms (Views: 2697.5ms | ActiveRecord: 1.7ms)
 
 
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-21 14:47:02 +0900
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (38.9ms)
+Completed 200 OK in 433ms (Views: 424.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 14:52:18 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 19:25:27 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (51.3ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (8.8ms)
+Completed 200 OK in 326ms (Views: 281.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/edit_basic_info" for ::1 at 2021-04-21 19:25:34 +0900
+Processing by UsersController#edit_basic_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit_basic_info.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.2ms)
+  Rendered users/edit_basic_info.html.erb within layouts/application (1889.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 1937ms (Views: 1924.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bases" for ::1 at 2021-04-21 19:25:38 +0900
+Processing by BasesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering bases/index.html.erb within layouts/application
+  [1m[36mBase Load (0.5ms)[0m  [1m[34mSELECT "bases".* FROM "bases"[0m
+  Rendered bases/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 42ms (Views: 31.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/list_of_employees_at_work" for ::1 at 2021-04-21 19:25:43 +0900
+Processing by ListOfEmployeesAtWorkController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mAttendance Load (0.7ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 16]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 17]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 18]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 25]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 27]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 28]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 29]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 30]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 31]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 32]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 33]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 34]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 35]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 36]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 37]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 38]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 39]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 40]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 41]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 42]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 43]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 44]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 45]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 46]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 47]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 48]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 49]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 50]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 51]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 52]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 53]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 54]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 55]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 56]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 57]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 58]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 59]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 60]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 61]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 62]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 63]]
+  Rendering list_of_employees_at_work/index.html.erb within layouts/application
+  Rendered list_of_employees_at_work/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 175ms (Views: 32.9ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/users" for ::1 at 2021-04-21 19:25:45 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (79.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 114ms (Views: 106.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/import" for ::1 at 2021-04-21 19:25:52 +0900
+Processing by UsersController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QsqBZ3B3eEwNrlKY9dtMYy5Y+FIeFtFhLnBW9IcGCDWRKIIY5+Rjo0qFoeHtm/10ssCkuO30DIKg1iXO9XEODg==", "commit"=>"CSVをインポート"}
+Redirected to http://localhost:3000/users
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2021-04-21 19:25:52 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (38.6ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 69ms (Views: 66.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/import" for ::1 at 2021-04-21 19:26:07 +0900
+Processing by UsersController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gUt/ufvQUIsL9JmD0d1EVEQ5X7g6IQ2+0HJgDMreFTkgLJQAhmsKbVkrt7FImWZTyEE+YEa+BSodES/hyKxd1w==", "csv_file"=>#<ActionDispatch::Http::UploadedFile:0x00007ff2c95a6928 @tempfile=#<Tempfile:/var/folders/dc/pzhgcnfd5fs9fycg91kl6fr00000gn/T/RackMultipart20210421-51355-92ad9h.csv>, @original_filename="勤怠一覧表.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"csv_file\"; filename=\"\xE5\x8B\xA4\xE6\x80\xA0\xE4\xB8\x80\xE8\xA6\xA7\xE8\xA1\xA8.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVをインポート"}
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+Encoding::InvalidByteSequenceError ("\x98" followed by "," on Windows-31J):
+  
+app/models/user.rb:74:in `import'
+app/controllers/users_controller.rb:36:in `import'
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-21 19:27:52 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (54.6ms)
+Completed 200 OK in 431ms (Views: 423.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1/edit_basic_info" for ::1 at 2021-04-21 19:27:58 +0900
+Processing by UsersController#edit_basic_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit_basic_info.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.7ms)
+  Rendered users/edit_basic_info.html.erb within layouts/application (1417.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 1466ms (Views: 1453.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/bases" for ::1 at 2021-04-21 19:28:00 +0900
+Processing by BasesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering bases/index.html.erb within layouts/application
+  [1m[36mBase Load (0.4ms)[0m  [1m[34mSELECT "bases".* FROM "bases"[0m
+  Rendered bases/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 61ms (Views: 45.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/list_of_employees_at_work" for ::1 at 2021-04-21 19:28:02 +0900
+Processing by ListOfEmployeesAtWorkController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 16]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 17]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 18]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 25]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 27]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 28]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 29]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 30]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 31]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 32]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 33]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 34]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 35]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 36]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 37]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 38]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 39]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 40]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 41]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 42]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 43]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 44]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 45]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 46]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 47]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 48]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 49]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 50]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 51]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 52]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 53]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 54]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 55]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 56]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 57]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 58]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 59]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 60]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 61]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 62]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 63]]
+  Rendering list_of_employees_at_work/index.html.erb within layouts/application
+  Rendered list_of_employees_at_work/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 119ms (Views: 27.9ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/users/1/edit_basic_info" for ::1 at 2021-04-21 19:28:05 +0900
+Processing by UsersController#edit_basic_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit_basic_info.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered users/edit_basic_info.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 90ms (Views: 85.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-04-21 19:28:07 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/_form.html.erb (7.2ms)
+  Rendered users/edit.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 64ms (Views: 41.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/edit_basic_info" for ::1 at 2021-04-21 19:28:09 +0900
+Processing by UsersController#edit_basic_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit_basic_info.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/edit_basic_info.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 58ms (Views: 50.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/bases" for ::1 at 2021-04-21 19:28:10 +0900
+Processing by BasesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering bases/index.html.erb within layouts/application
+  [1m[36mBase Load (0.2ms)[0m  [1m[34mSELECT "bases".* FROM "bases"[0m
+  Rendered bases/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 54ms (Views: 50.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/list_of_employees_at_work" for ::1 at 2021-04-21 19:28:11 +0900
+Processing by ListOfEmployeesAtWorkController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mAttendance Load (1.7ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 16]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 17]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 18]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 25]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 26]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 27]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 28]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 29]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 30]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 31]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 32]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 33]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 34]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 35]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 36]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 37]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 38]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 39]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 40]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 41]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 42]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 43]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 44]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 45]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 46]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 47]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 48]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 49]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 50]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 51]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 52]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 53]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 54]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 55]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 56]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 57]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 58]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 59]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 60]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 61]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 62]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ?[0m  [["user_id", 63]]
+  Rendering list_of_employees_at_work/index.html.erb within layouts/application
+  Rendered list_of_employees_at_work/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 105ms (Views: 31.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/users" for ::1 at 2021-04-21 19:28:12 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (48.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 108ms (Views: 102.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 19:28:14 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 62ms (Views: 60.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for ::1 at 2021-04-21 19:28:16 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z8D2uo1Vr5s/f7xgXmimvecj6S3cCB6qrPgohb6c7XbGpx0D8O71fW2gklLHLIS6a1uI9aCXFj5hm2dovO6lmA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 19:28:16 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2021-04-21 19:28:20 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 59ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2021-04-21 19:28:30 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W7YejjGGzkfHqB9yN6EHNa/IT4NbfzKz34/vep1PAm99ol3qgkK3mFDTYm7YqSwbZTFkA22h05RIOP8pL3SP0A==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 254ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/4" for ::1 at 2021-04-21 19:28:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 4)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (18.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 59ms (Views: 50.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/4" for ::1 at 2021-04-21 19:28:35 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (1.0ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 4)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (20.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 64ms (Views: 52.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/4.csv" for ::1 at 2021-04-21 19:28:38 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.csv.ruby
+  Rendered users/show.csv.ruby (0.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.4ms)
+
+
+  
+SyntaxError (/Users/buzoamosu/Attendance_System_A/app/views/users/show.csv.ruby:28: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/users/show.csv.ruby:28: syntax error, unexpected ensure, expecting end-of-input
+app/controllers/users_controller.rb:68:in `block (2 levels) in show'
+app/controllers/users_controller.rb:62:in `show'
+Started GET "/users/4.csv" for ::1 at 2021-04-21 19:29:52 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.csv.ruby
+  Rendered users/show.csv.ruby (0.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.5ms)
+
+
+  
+SyntaxError (/Users/buzoamosu/Attendance_System_A/app/views/users/show.csv.ruby:28: syntax error, unexpected end, expecting end-of-input):
+  
+app/views/users/show.csv.ruby:28: syntax error, unexpected end, expecting end-of-input
+app/controllers/users_controller.rb:68:in `block (2 levels) in show'
+app/controllers/users_controller.rb:62:in `show'
+Started GET "/users/4.csv" for ::1 at 2021-04-21 19:32:22 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.csv.ruby
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  Rendered users/show.csv.ruby (5.5ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 勤怠一覧表.csv (5.2ms)
+Completed 200 OK in 26ms (Views: 5.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/4.csv" for ::1 at 2021-04-21 19:36:02 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.csv.ruby
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  Rendered users/show.csv.ruby (4.1ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 勤怠一覧表.csv (0.9ms)
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/4.csv" for ::1 at 2021-04-21 19:41:58 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.csv.ruby
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  Rendered users/show.csv.ruby (5.8ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 勤怠一覧表.csv (0.6ms)
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 2.0ms)
+
+
