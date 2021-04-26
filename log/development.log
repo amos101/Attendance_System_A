@@ -3129,3 +3129,1261 @@ Sent data 勤怠一覧表.csv (0.6ms)
 Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for ::1 at 2021-04-21 20:11:22 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (26.5ms)
+Completed 200 OK in 151ms (Views: 149.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for ::1 at 2021-04-21 20:11:23 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2021-04-21 20:11:34 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kUbXDfBZuv7RTswGHQGZC0eWGtIo66Q5Sy68alQDqgG3UpRpQ53DIUY1sRryCbIljW8xUh41RR7cmaw55jgnvg==", "session"=>{"email"=>"sample@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample@email.com"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/4" for ::1 at 2021-04-21 20:11:49 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 4)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (15.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 126ms (Views: 74.0ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 20:12:37 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2021-04-21 20:12:39 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 83ms (Views: 81.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2021-04-21 20:13:01 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EB3ommtGzA5/cTHb3ztU4vboQtXE7n4KjwO/jv11Dls2Cav+2IK10egKTMcwM3/MPBFpVfIwny0YtK/dT06D5A==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 254ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4" for ::1 at 2021-04-21 20:13:02 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 4)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 64ms (Views: 54.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-21 20:13:43 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2021-04-21 20:13:44 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2021-04-21 20:13:54 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Om8ZwIbBE1IMo2WdoixowxNfAwkS58wo3kpkC5GT/kIce1qkNQVqjZvYGIFNJEPt2aYoiSQ5LQ9J/XRYI6hz/Q==", "session"=>{"email"=>"sample-01@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-01@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 258ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-21 20:13:55 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 84ms (Views: 70.5ms | ActiveRecord: 2.5ms)
+
+
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-21 20:16:11 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (24.6ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for ::1 at 2021-04-21 20:16:12 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 69ms (Views: 64.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2021-04-21 20:16:25 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000root_path
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 259ms (ActiveRecord: 0.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/sessions_helper.rb:62:in `redirect_back_or'
+app/controllers/sessions_controller.rb:12:in `create'
+Started POST "/login" for ::1 at 2021-04-21 20:21:11 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 415ms (ActiveRecord: 1.7ms)
+
+
+  
+NoMethodError (undefined method `current_user_logged_in?' for #<SessionsController:0x00007ff081bbe0a8>
+Did you mean?  current_user?):
+  
+app/helpers/sessions_helper.rb:7:in `log_in'
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2021-04-21 20:21:49 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 300ms (ActiveRecord: 2.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/helpers/sessions_helper.rb:38:in `current_user'
+app/helpers/sessions_helper.rb:7:in `log_in'
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2021-04-21 20:22:03 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000root_path
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 321ms (ActiveRecord: 1.9ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/helpers/sessions_helper.rb:62:in `redirect_back_or'
+app/controllers/sessions_controller.rb:12:in `create'
+Started POST "/login" for ::1 at 2021-04-21 20:24:34 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 341ms (ActiveRecord: 1.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/helpers/sessions_helper.rb:51:in `current_user?'
+app/helpers/sessions_helper.rb:7:in `log_in'
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2021-04-21 20:26:18 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKzxHW5bmsPh0pZWArNKoOT3rw1CozxCeyLpMVajqoDquLJ53Z/jHHap60rtu2GOLg6EjXR93WXslfli5JgnPw==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 500 Internal Server Error in 306ms (ActiveRecord: 1.8ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/helpers/sessions_helper.rb:46:in `current_user?'
+app/controllers/sessions_controller.rb:21:in `create'
+Started GET "/" for ::1 at 2021-04-21 20:29:49 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (20.5ms)
+Completed 200 OK in 164ms (Views: 162.5ms | ActiveRecord: 1.1ms)
+
+
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-25 19:29:02 +0900
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (40.1ms)
+Completed 200 OK in 806ms (Views: 773.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:32:25 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (1911.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 2064ms (Views: 1958.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:32:42 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (10.0ms)
+  Rendered attendances/edit_overtime_info.js.erb (31.8ms)
+Completed 200 OK in 62ms (Views: 45.8ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:34:15 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g5IB/yhJg0aDAD+1OvcN1dLiUeC0sEUIelVE/a8deahoLybNr3eT/M7RiR1JL40xc3l0QODqnLGKbC4Y/18uyg==", "attendance"=>{"scheduled_end_time"=>"10:00", "tomorrow"=>"false", "business_processing_content"=>"", "instructor_confirmation"=>""}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:34:15 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (26.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 82ms (Views: 69.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:34:20 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (3.6ms)
+  Rendered attendances/edit_overtime_info.js.erb (7.9ms)
+Completed 200 OK in 26ms (Views: 17.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:34:42 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TEVD24tdf3aPMDCe7SmuBtPxofn+cNp1dRfCVtck5Amn+GTpDGNvzMLhhjae8S7icmqEWaoqA8yFLqizh2azaw==", "attendance"=>{"scheduled_end_time"=>"10:00", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>"3"}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "attendances" SET "instructor_confirmation" = ?, "application" = ?, "scheduled_end_time" = ?, "business_processing_content" = ?, "tomorrow" = ?, "updated_at" = ? WHERE "attendances"."id" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"], ["scheduled_end_time", "2021-04-25 01:00:00"], ["business_processing_content", "手伝い"], ["tomorrow", "f"], ["updated_at", "2021-04-25 10:34:42.483797"], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 18ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:34:42 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.7ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (29.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 86ms (Views: 69.5ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:34:53 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (6.1ms)
+  Rendered attendances/edit_overtime_info.js.erb (13.1ms)
+Completed 200 OK in 28ms (Views: 18.2ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:35:02 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BAhMUo1IUxqTcNgPjA+uQuYwaP0xbQlSq7XC10wYvujvtWtgCnZDoN6hbqf/1y6mR6tNXWU30OtbjKgyHFrpig==", "attendance"=>{"scheduled_end_time"=>"22:00", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>""}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:35:02 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (1.3ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (42.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 118ms (Views: 95.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:35:06 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (3.9ms)
+  Rendered attendances/edit_overtime_info.js.erb (10.0ms)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:35:15 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9HPwj9kSCU3Gl8mKpLvyjTT1HX9vdYnJC+eNmUDLdxMfzte9XiwZ94tGfyLXY3JplW443zsvUHD73ud8EIkgcQ==", "attendance"=>{"scheduled_end_time"=>"10:00:00.000", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>"3"}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:35:15 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (2.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (49.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 160ms (Views: 131.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:35:23 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (4.7ms)
+  Rendered attendances/edit_overtime_info.js.erb (11.5ms)
+Completed 200 OK in 30ms (Views: 19.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:35:30 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V+BLAyW8f/kptiunwMfMb7jNWcsIogJJzEjWGX+GCLK8XWwxooJvQ2RnnQ+zH0yLGVZ8a1z42/A8cbz8L8Rf0A==", "attendance"=>{"scheduled_end_time"=>"22:00", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>"3"}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "attendances" SET "scheduled_end_time" = ?, "updated_at" = ? WHERE "attendances"."id" = ?[0m  [["scheduled_end_time", "2021-04-25 13:00:00"], ["updated_at", "2021-04-25 10:35:30.699620"], ["id", 1]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 19ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:35:30 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (11.0ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 133ms (Views: 77.2ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:36:05 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (3.0ms)
+  Rendered attendances/edit_overtime_info.js.erb (7.9ms)
+Completed 200 OK in 27ms (Views: 16.1ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/2/attendances/1/update_overtime_info" for ::1 at 2021-04-25 19:36:10 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2v2gOJ/ublq4da3OShQjdk6WVWlZv0XkEGjwxoaRtQkxQIcKGNB+4PWkG2Y5zKOS7w1wyQ3lnF3gUZoj1tPiaw==", "attendance"=>{"scheduled_end_time"=>"22:00:00.000", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>""}, "commit"=>"変更を送信する", "user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/2" for ::1 at 2021-04-25 19:36:10 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 2], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 2], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 2], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (35.1ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 117ms (Views: 90.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/2/attendances/1/edit_overtime_info" for ::1 at 2021-04-25 19:36:13 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 2)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (5.1ms)
+  Rendered attendances/edit_overtime_info.js.erb (11.0ms)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/logout" for ::1 at 2021-04-25 19:36:20 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ElOR2bXsiQIgviX+3q7Rv00yNLOpZu9f1BKa2yCwBp+zNHpgyFfT5HJhC8xH6vO4wUpVa9X558sZcdU2IsJOcQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 19:36:20 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2021-04-25 19:36:25 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 90ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2021-04-25 19:36:51 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iLbKAQBX+4AzRwsKzrBPiW7u1NB8M4TAofnAGEd79VWuoolls5OCX6Q8dhYhuGSnpBf/UErtZec2TtBL9UB46g==", "session"=>{"email"=>"sample-02@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-02@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 263ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-25 19:36:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (3.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (20.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 75ms (Views: 56.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/3/attendances/61/edit_overtime_info" for ::1 at 2021-04-25 19:36:55 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"3", "id"=>"61"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.2ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 61], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (3.6ms)
+  Rendered attendances/edit_overtime_info.js.erb (9.6ms)
+Completed 200 OK in 31ms (Views: 16.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/3/attendances/61/edit_overtime_info" for ::1 at 2021-04-25 19:37:20 +0900
+Processing by AttendancesController#edit_overtime_info as JS
+  Parameters: {"user_id"=>"3", "id"=>"61"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.1ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 61], ["LIMIT", 1]]
+  Rendering attendances/edit_overtime_info.js.erb
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered attendances/_edit_overtime_info.html.erb (4.9ms)
+  Rendered attendances/edit_overtime_info.js.erb (10.4ms)
+Completed 200 OK in 27ms (Views: 19.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/3/attendances/61/update_overtime_info" for ::1 at 2021-04-25 19:37:33 +0900
+Processing by AttendancesController#update_overtime_info as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PcV5OvWCtG8bngGaZpq8V2E4xJ+CILJI000f7BglFEYyZlpuzkIUIY6VugwzrM0Engb6bbGx8A9FYG9ZIs+WeQ==", "attendance"=>{"scheduled_end_time"=>"22:09", "tomorrow"=>"false", "business_processing_content"=>"手伝い", "instructor_confirmation"=>"2"}, "commit"=>"変更を送信する", "user_id"=>"3", "id"=>"61"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."id" = ? LIMIT ?[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "attendances" SET "instructor_confirmation" = ?, "application" = ?, "scheduled_end_time" = ?, "business_processing_content" = ?, "tomorrow" = ?, "updated_at" = ? WHERE "attendances"."id" = ?[0m  [["instructor_confirmation", 2], ["application", "申請中"], ["scheduled_end_time", "2021-04-25 13:09:00"], ["business_processing_content", "手伝い"], ["tomorrow", "f"], ["updated_at", "2021-04-25 10:37:33.845403"], ["id", 61]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 24ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-25 19:37:33 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.6ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (1.0ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (92.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 169ms (Views: 145.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/3.csv" for ::1 at 2021-04-25 19:37:43 +0900
+Processing by UsersController#show as CSV
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.csv.ruby
+  [1m[36mAttendance Load (0.7ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  Rendered users/show.csv.ruby (6.2ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 勤怠一覧表.csv (2.7ms)
+Completed 200 OK in 27ms (Views: 2.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 19:39:53 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for ::1 at 2021-04-25 19:39:57 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 58ms (Views: 47.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 19:56:19 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (23.0ms)
+Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3/edit" for ::1 at 2021-04-25 19:56:26 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.3ms)
+  Rendered users/_form.html.erb (27.0ms)
+  Rendered users/edit.html.erb within layouts/application (29.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 103ms (Views: 97.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-25 19:56:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 101ms (Views: 45.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 19:56:53 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 59ms (Views: 57.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 19:58:21 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (33.2ms)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:02:42 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (40.8ms)
+Completed 200 OK in 78ms (Views: 76.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:11:51 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (25.6ms)
+Completed 200 OK in 137ms (Views: 135.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:12:19 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-25 20:13:18 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (51.4ms)
+Completed 200 OK in 463ms (Views: 454.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:13:23 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 75ms (Views: 72.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-25 20:13:26 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (1801.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 1918ms (Views: 1837.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:13:31 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 71ms (Views: 69.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:20:10 +0900
+Processing by StaticPagesController#top as HTML
+Completed 500 Internal Server Error in 122ms
+
+
+  
+NoMethodError (undefined method `user_signed_in?' for #<StaticPagesController:0x00007fb9be5e9848>):
+  
+app/controllers/static_pages_controller.rb:5:in `top'
+Started GET "/" for ::1 at 2021-04-25 20:22:16 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (54.8ms)
+Completed 200 OK in 155ms (Views: 153.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/login" for ::1 at 2021-04-25 20:22:19 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (21.4ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 85ms (Views: 82.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:22:33 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 134ms (Views: 132.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:24:32 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (36.2ms)
+Completed 200 OK in 81ms (Views: 80.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:24:48 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 65ms (Views: 63.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/login" for ::1 at 2021-04-25 20:24:56 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.7ms)
+Completed 200 OK in 106ms (Views: 103.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-04-25 20:24:59 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 94ms (Views: 90.6ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.previous_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:8:in `<top (required)>')
+DEPRECATION WARNING: set the 'will_paginate.next_label' key in your i18n locale instead of editing pagination_options (called from /Users/buzoamosu/Attendance_System_A/config/environment.rb:9:in `<top (required)>')
+Started GET "/" for ::1 at 2021-04-26 19:55:52 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (66.7ms)
+Completed 200 OK in 1038ms (Views: 1019.9ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 19:58:05 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_shim.html.erb (2.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (32.2ms)
+Completed 200 OK in 165ms (Views: 162.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:02:20 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (28.0ms)
+Completed 200 OK in 180ms (Views: 178.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-26 20:02:25 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (1749.2ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 1853ms (Views: 1778.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-26 20:12:08 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.9ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 172ms (Views: 149.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:12:12 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered static_pages/top.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 103ms (Views: 100.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3" for ::1 at 2021-04-26 20:12:18 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation" = ? AND "attendances"."application" = ?[0m  [["instructor_confirmation", 3], ["application", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_k" = ? AND "attendances"."application_k" = ?[0m  [["instructor_confirmation_k", 3], ["application_k", "申請中"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."instructor_confirmation_ok" = ? AND "attendances"."application_ok" = ?[0m  [["instructor_confirmation_ok", 3], ["application_ok", "申請中"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (1.0ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 3], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 3)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (28.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 98ms (Views: 73.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:12:25 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered static_pages/top.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 62ms (Views: 59.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for ::1 at 2021-04-26 20:12:26 +0900
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ATpOpTh/ZARzU9uPiMtPIkmaflt5yfVsZCd2tVUshfCgXaUcRcQ+4iGM9b0Rj20lxeIfgwVW/fipRDlYV17NHg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:12:26 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2021-04-26 20:12:29 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (15.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 73ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:12:30 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:13:04 +0900
+  
+SyntaxError (/Users/buzoamosu/Attendance_System_A/app/controllers/application_controller.rb:73: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/application_controller.rb:73: syntax error, unexpected end, expecting end-of-input
+app/controllers/static_pages_controller.rb:1:in `<top (required)>'
+Started GET "/" for ::1 at 2021-04-26 20:14:06 +0900
+  
+SyntaxError (/Users/buzoamosu/Attendance_System_A/app/controllers/application_controller.rb:73: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/application_controller.rb:73: syntax error, unexpected end, expecting end-of-input
+app/controllers/static_pages_controller.rb:1:in `<top (required)>'
+Started GET "/" for ::1 at 2021-04-26 20:14:18 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 70ms (Views: 68.6ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:20:36 +0900
+  
+SyntaxError (/Users/buzoamosu/Attendance_System_A/app/controllers/application_controller.rb:80: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/application_controller.rb:80: syntax error, unexpected end, expecting end-of-input
+app/controllers/static_pages_controller.rb:1:in `<top (required)>'
+Started GET "/" for ::1 at 2021-04-26 20:21:18 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 94ms (Views: 91.7ms)
+
+
+Started GET "/login" for ::1 at 2021-04-26 20:21:23 +0900
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (29.6ms)
+Completed 200 OK in 87ms (Views: 85.2ms)
+
+
+Started POST "/login" for ::1 at 2021-04-26 20:21:35 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nse0K5ycT0lOMzNEYhbcTdjIfwCfdK8cq8FpAI1beGIQ0/dPL1g2ltlITliNHvdjEjFUgKmqTjs8dnlTP2D13Q==", "session"=>{"email"=>"sample-1@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sample-1@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 294ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/4" for ::1 at 2021-04-26 20:21:35 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) AND ("attendances"."started_at" IS NOT NULL)[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND "attendances"."worked_on" = ? LIMIT ?[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" = ? AND ("attendances"."worked_on" BETWEEN ? AND ?) ORDER BY "attendances"."worked_on" ASC[0m  [["user_id", 4], ["worked_on", "2021-04-01"], ["worked_on", "2021-04-30"]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."superior_flag" = ? AND ("users"."id" != 4)[0m  [["superior_flag", "t"]]
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 93ms (Views: 51.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2021-04-26 20:21:40 +0900
+Processing by StaticPagesController#top as HTML
+  Rendering static_pages/top.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered static_pages/top.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.6ms)
+
+

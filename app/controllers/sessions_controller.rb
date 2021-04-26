@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
       flash.now[:danger] = '認証に失敗しました。'
       render :new
     end
+
+    
   end
   
   def destroy

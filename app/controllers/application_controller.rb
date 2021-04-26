@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
       end  
   end
 
+  
+
+
+
 
   # set_one_month　⇨　ページ出力前に1ヶ月分のデータの存在を確認・取得します。
   def set_one_month

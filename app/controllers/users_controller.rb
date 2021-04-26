@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   before_action :set_one_month, only: [:show, :attendance_confirmation]
   
 
+
   
   def new # ユーザー新規作成ページへ
     @user = User.new # ユーザーオブジェクトを生成し、インスタンス変数に代入。
