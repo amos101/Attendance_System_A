@@ -37,7 +37,7 @@
               <td><%= f.check_box :tomorrow, {}, "true", "false" %></td>
               <td><%= f.text_field :business_processing_content, class: "form-control" %></td><!--業務処理内容-->
               <!--下記の参考資料URL　⇨　https://shinmedia20.com/rails-select-box-->
-              <td><%= f.select :instructor_confirmation, options_from_collection_for_select(@superior, :id, :name , 1), {include_blank: true}, {class: "form-control"} %></td>
+              <td><%= f.select :instructor_confirmation_k, options_from_collection_for_select(@superior, :id, :name , 1), {include_blank: true}, {class: "form-control"} %></td>
             </tr>
           </tbody>
       </table>
