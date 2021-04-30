@@ -7,7 +7,7 @@ CSV.generate(bom) do |csv|
   @attendances.each do |attendance|
     column_values = [
       attendance.worked_on,
-      if attendance.started_at.present?
+      if attendance.started_at.present? 
         l(attendance.started_at.floor_to(15.minutes), format: :time)
       else
         ""
@@ -17,7 +17,7 @@ CSV.generate(bom) do |csv|
       else
         ""
       end,
-      attendance.note,
+      #attendance.note,
       attendance.business_processing_content
     ]
     csv << column_values
