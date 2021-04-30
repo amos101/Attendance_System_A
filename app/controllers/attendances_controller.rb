@@ -36,7 +36,6 @@ class AttendancesController < ApplicationController
     @user = User.find(params[:id])
     # 上長フラグがtrueのユーザーを取得
     @superior = User.where(superior_flag: true).where.not(id: @user)
-    
   end
   
   def update_one_month
@@ -71,15 +70,8 @@ class AttendancesController < ApplicationController
             flash[:danger] = "出勤時間及び退勤時間を入力して下さい。"
             redirect_to attendances_edit_one_month_user_path(@user) and return
           end
-          if item[:instructor_confirmation_k].blank?
-            flash[:danger] = "指示者確認欄を選んでください"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end  
-        end
-      
           # item[:edit_started_at]に編集した日付が入ってしまってるので、「attendance.worked_on」で「勤怠の編集用の日付と時間」を取得し、
           #「勤怠の編集用の日付と時間」を.to_sで文字列に変換してitem[:edit_started_at]には時間と分しか入っていないので「 + ":00"」で秒を足している。
-        if item[:instructor_confirmation_k].present?  
           item[:edit_started_at] = attendance.worked_on.to_s + " " + item[:edit_started_at] + ":00"
           
           # trueの時は、「attendance.worked_on」を「翌日」にして、
@@ -98,42 +90,17 @@ class AttendancesController < ApplicationController
           # !をつけている場合はfalseでは無く例外処理を返す。
           attendance.update_attributes!(item) # ここにトランザクションを適用。
           n += 1 # n = n + 1
-
-          
         end
+      end
+      # 全ての繰り返し処理が問題なく完了した時は、下記の部分の処理が適用されます。
+      if  n > 0
+        flash[:success] = "1ヶ月分の勤怠情報を#{ n }件更新しました。"
+      else  
+        flash[:danger] = "無効な入力データがあった為、更新をキャンセルしました。"
+      end  
+      
 
-      end
-      attendances_params.each do |id, item|
-        attendance = Attendance.find(id)
-          if item[:edit_started_at].blank? && item[:edit_finished_at].present?
-            flash[:danger] = "出社時間を入力して下さい。"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end
-          # もし、「退勤が空」且つ「出勤が存在した場合」
-          if item[:edit_started_at].present? && item[:edit_finished_at].blank?
-            flash[:danger] = "退社時間を入力して下さい。"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end
-          if item[:edit_started_at] > item[:edit_finished_at]
-            flash[:danger] = "出社時間が退社時間より大きいです。入力し直して下さい。"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end
-          if item[:note].blank?
-            flash[:danger] = "備考欄を入力して下さい。"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end
-          if item[:edit_started_at].blank? && item[:edit_finished_at].blank?
-            flash[:danger] = "出勤時間及び退勤時間を入力して下さい。"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end
-          if item[:instructor_confirmation_k].blank?
-            flash[:danger] = "指示者確認欄を選んでください"
-            redirect_to attendances_edit_one_month_user_path(@user) and return
-          end  
-          # 全ての繰り返し処理が問題なく完了した時は、下記の部分の処理が適用されます。
-          flash[:success] = "1ヶ月分の勤怠情報を#{ n }件更新しました。"
-          redirect_to user_url(date: params[:date]) and return
-      end
+      redirect_to user_url(date: params[:date]) and return
     end
   # トランザクションによる例外処理の分岐を以下に記述。
   rescue ActiveRecord::RecordInvalid # 以下に例外が発生した時は、以下２行の処理が実行される。

@@ -38,7 +38,6 @@
               <!--readonly: true　⇨　出勤時間と退社時間を操作出来ないようにする。-->
                 <td><%= attendance.time_field :edit_started_at, readonly: true, class: "form-control" %></td>
                 <td><%= attendance.time_field :edit_finished_at, readonly: true, class: "form-control" %></td>
-                
               <% else %>
                 <td><%= attendance.time_field :edit_started_at, class: "form-control" %></td>
                 <td><%= attendance.time_field :edit_finished_at, class: "form-control" %></td>
